@@ -28,11 +28,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+  A:counter1 is function scope and counter2 is block scoped.
   
   2. Which of the two uses a closure? How can you tell?
+
+  A: Counter1 uses closure and i can tell by there is a return function nested inside of a function making it accessiible from an outer function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     A: Counter1 Counter2 is important when you are dealing with sensitive information that you only want to exsist inside of the block to try to keep it away from hackers.
 */
 
 // counter1 code
@@ -81,9 +87,16 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(callback, numInnings){
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < numInnings; i++){
+    home += callback();
+    away += callback();
+  }
+  return {'Away': away, 'Home': home}
 }
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
